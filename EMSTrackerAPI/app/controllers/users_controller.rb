@@ -43,6 +43,7 @@ class UsersController < ApplicationController
     end
     
   end
+
   def new
     # default: render 'new' template
   end
@@ -80,5 +81,9 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:notice] = "User '#{@user.username}' deleted."
     redirect_to users_path
+  end
+
+  def closest_mfr
+	@available_mfrs=Location.all;  
   end
 end
