@@ -1,0 +1,19 @@
+%h1 Sign up
+
+= form_tag users_path do
+  = hidden_field :user, :mfr, value: false
+  = label :user, :username, 'Username'
+  = text_field :user, 'username'
+
+  = label :user, :password, 'Password'
+  = password_field :user, 'password'
+
+  = label :user, :password_confirmation, 'Confirm password'
+  = password_field :user, 'password_confirmation'
+
+  = label :user, :rollno, 'Roll Number'
+  = text_field :user, 'rollno'
+
+  = label :user, :phoneno, 'Phone Number'
+  = text_field :user, 'phoneno'
+  = submit_tag 'Sign Up'
