@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20150422084845) do
     t.integer  "mfr_id"
     t.string   "gps_latitude"
     t.string   "gps_longitude"
-    t.string   "location"
+    t.string   "gen_location"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

@@ -4,7 +4,7 @@ class CreateLocations < ActiveRecord::Migration
   		t.belongs_to :mfr
   		t.string :gps_latitude
   		t.string :gps_longitude
-  		t.string :location
+  		t.string :gen_location
   		t.timestamps null: false
   	end
   end

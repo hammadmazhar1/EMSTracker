@@ -1,43 +1,34 @@
 class UsersController < ApplicationController
 
-
   def show
-    if params[:id] == "login"
-	redirect_to user_log_path and return
-    end
-	
     id = params[:id] # retrieve user ID from URI route
     @user = User.find(id) # look up user by unique ID
     # will render app/views/users/show.<extension> by default
   end
-  
-  def login
-  end
+
   def log_in
-    
     userToLogIn = User.find_by_username(params[:username])
     if userToLogIn.password == params[:password]
       session[:curlogid] = userToLogIn.id
       params[:curlogid] = userToLogIn.id
       params[:loggedin] = 'user'
       session[:loggedin] = 'user'
-      redirect_to user_help_path
+      redirect_to users_path
     else
       flash[:warning] = "Incorrect Username and/or Password"
       redirect_to users_path
     end
   end
-  
   def create_emergency
     emergency = Emergency.new()
+    emergency.
   end
-
   def index
     loggedin = params[:loggedin] || session[:loggedin]
     
     case loggedin
     when 'user'
-      redirect_to user_login_path
+      
     when 'mfr'
       redirect_to mfrs_path
     end
@@ -61,19 +52,13 @@ class UsersController < ApplicationController
     else
       flash[:warning] = "You are not authorised to change other users data."
       redirect_to users_path
-     end
-   end
+  end
 
   def update
     @user = User.find params[:id]
     @user.update_attributes!(params[:user])
     flash[:notice] = "#{@user.username} was successfully updated."
     redirect_to user_path(@user)
-  end
-
-  def help
-  #help is 
-   redirect_to user_help
   end
 
   def destroy
@@ -83,7 +68,4 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  def closest_mfr
-	@available_mfrs=Location.all;  
-  end
 end

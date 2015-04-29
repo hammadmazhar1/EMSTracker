@@ -20,14 +20,14 @@ Background: database status
   
   And the following Locations exist:
   | mfr_id | gps_latitude | gps_longitude | location |
-  |	1			 | 31.470855    | 74.412103     | M-6      |
-  | 2			 | 31.380445		|	74.412103			|	SSE			 |
+  |	1	   | 31.470855    | 74.412103     | M-6      |
+  | 2	   | 31.380445	  | 74.412103	  | SSE	     |
   
   And the following Kits exist:
   | location  | details 						| available |
-  | SSE       | First Floor Lobby	  | yes				|
-  | SportsCom | EMS Room            | no        |
-	| Rec Room	| PDC stall						| yes				|
+  | SSE       | First Floor Lobby	  			| yes		|
+  | SportsCom | EMS Room            			| no        |
+  | Rec Room  | PDC stall						| yes		|
 
 Scenario: get nearest MFR
 	Given I am on the home page
@@ -37,12 +37,12 @@ Scenario: get nearest MFR
 	Then I should be on the details page for "Usaid Mandvia"
 
 
-# Feature: MFR kit availability
-# 		As a MFR 
-# 		So that I can treat patients quickly
-# 		I should be able to see the first aid kits currently available
+#Feature: MFR kit availability
+#		As a MFR 
+#		So that I can treat patients quickly
+#		I should be able to see the first aid kits currently available
 	
-# Background: database status
+#Background: database status
 
 #   Given the following MFRs exist:
 #   | username     | password | name          | rollno   | phoneno     | gender |

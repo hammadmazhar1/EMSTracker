@@ -1,16 +1,8 @@
 EMSTrackerAPI::Application.routes.draw do
-  resources :users
-  # map '/' to be a redirect to '/movies'
-  root :to => redirect('/users')
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  match  '/users' => 'users#log_in', as: :user_log, :via =>[:get]
-  post '/users', to: 'users#log_in', as: :user_login
-  post '/users', to: 'users#sign_up', as: :user_signup
-  match ':controller(/:action(/:id))', :controller => /users/, :action => /closest_mfr/, as: :user_mfr, :via =>[:get]
-  #match ':users(/:closest_mfr(/:id))', as: :user_mfr, :via =>[:get]
-    
-# Sample of regular route:
+
+  # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
