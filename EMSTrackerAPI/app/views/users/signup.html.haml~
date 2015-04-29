@@ -1,0 +1,25 @@
+%h1 EMS-Tracker
+=image_tag "logo.jpg"
+
+%h2 Sign-up
+
+= form_tag user_signup_path, :method => :post, :id =>'sign_form' do
+
+  = label :user, :username, 'username' 
+  = text_field :user  ,'username' 
+
+  = label :user,:password , 'password'
+  = password_field :password , 'password' 
+	
+  = label :user, :gender, 'Gender'
+  = select :user, :gender, ['M','F']
+
+  = label :user,:rollno, 'rollnumber'
+  = text_field :user, 'rollno' 
+
+  = label :user,:phoneno , 'phonenumber'
+  = text_field :user, 'phoneno' 
+	
+  = submit_tag 'Create Account',:id => 'Account_created'
+
+

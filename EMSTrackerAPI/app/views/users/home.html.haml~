@@ -1,0 +1,29 @@
+%h1 Login
+
+= form_tag Login_path do
+
+  = label :user, :username, 'username' 
+  = text_field :user , 'username' 
+
+  = label :user,:password , 'password'
+  = text_field :password , 'password' 
+	
+  = label :user, :Type, 'Type'
+  = select :user, :Type, ['MFR','User']
+	
+  = submit_tag 'Login'
+
+%h1 Sign-up
+
+= form_tag Sign-up_path do
+
+  = label :user, :username, 'username' 
+  = text_field :user , 'username' 
+
+  = label :user,:password , 'password'
+  = text_field :password , 'password' 
+	
+  = label :user, :Type, 'Type'
+  = select :user, :Type, ['MFR','User']
+	
+  = submit_tag 'Sign up'

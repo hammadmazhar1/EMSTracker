@@ -1,0 +1,20 @@
+%h1 EMS-Tracker
+=image_tag "logo.jpg"
+
+%h2 Login
+
+= form_tag user_login_path, :method => :get, :id =>'login_form' do
+
+  = label :user, :username, 'username' 
+  = text_field :user , 'username' 
+
+  = label :user,:password , 'password'
+  = password_field :password , 'password' 
+	
+  = label :Type, :Type, 'Type'
+  = select :Type, :Type, ['MFR','User']
+ 
+ 
+  = submit_tag 'Login', :id => 'logged_in'
+
+
