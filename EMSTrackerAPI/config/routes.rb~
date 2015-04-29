@@ -7,7 +7,7 @@ EMSTrackerAPI::Application.routes.draw do
   match  '/users' => 'users#log_in', as: :user_log, :via =>[:get]
   post '/users', to: 'users#log_in', as: :user_login
   post '/users', to: 'users#sign_up', as: :user_signup
-  match ':controller(/:action(/:id))', :controller => /users/, :action => /closest_mfr/, as: :user_mfr, :via =>[:get]
+  match ':controller(/:action(/:id))', :controller => /users/, :action => /:closest_mfr/, as: :user_mfr, :via =>[:get]
   #match ':users(/:closest_mfr(/:id))', as: :user_mfr, :via =>[:get]
     
 # Sample of regular route:

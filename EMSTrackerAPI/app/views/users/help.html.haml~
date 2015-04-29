@@ -1,0 +1,5 @@
+%h1 Help
+
+= form_tag user_help_path do
+
+ = image_tag "helpbutton.gif"

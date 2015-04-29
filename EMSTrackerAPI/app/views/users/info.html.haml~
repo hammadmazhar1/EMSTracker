@@ -1,0 +1,16 @@
+%h1 User
+=image_tag "logo.jpg"
+
+%h2 Login
+
+= form_tag user_login_path, :method => :get, :id =>'login_form' do
+	
+@vavailable_mfrs.each do 
+
+    @vavailable_mfrs do |movie|
+      %tr
+        %td= movie.title 
+        %td= movie.rating
+        %td= movie.release_date
+        %td= link_to "More about #{movie.title}", movie_path(movie)
+

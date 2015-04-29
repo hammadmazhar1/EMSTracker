@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android               = "http://schemas.android.com/apk/res/android"
+    android:layout_width        = "match_parent"
+    android:layout_height       = "match_parent">
+
+    <LinearLayout
+        android:id                      = "@+id/register_linearLayout"
+        android:layout_width            = "wrap_content"
+        android:layout_height           = "wrap_content"
+        android:orientation             = "vertical"
+        android:layout_centerInParent   = "true" >
+
+        <EditText
+            android:id                  = "@+id/register_username"
+            android:layout_width        = "200dp"
+            android:layout_height       = "60dp"
+            android:hint                = "@string/hint_username"
+            android:gravity             = "center"
+            android:inputType           = "text"
+            android:imeOptions          = "actionNext"
+            />
+
+        <EditText
+            android:id                  = "@+id/register_password"
+            android:layout_width        = "200dp"
+            android:layout_height       = "60dp"
+            android:hint                = "@string/hint_password"
+            android:gravity             = "center"
+            android:inputType           = "textPassword"
+            android:imeOptions          = "actionNext"
+            />
+
+        <EditText
+            android:id                  = "@+id/register_rollno"
+            android:layout_width        = "200dp"
+            android:layout_height       = "60dp"
+            android:hint                = "@string/hint_rollno"
+            android:gravity             = "center"
+            android:inputType           = "number"
+            android:imeOptions          = "actionNext"
+            />
+
+        <EditText
+            android:id                  = "@+id/register_phoneno"
+            android:layout_width        = "200dp"
+            android:layout_height       = "60dp"
+            android:hint                = "@string/hint_phoneno"
+            android:gravity             = "center"
+            android:inputType           = "phone"
+            android:imeOptions          = "actionDone"
+            />
+
+        <Button
+            android:id                  = "@+id/register_submit"
+            android:layout_width        = "200dp"
+            android:layout_height       = "60dp"
+            android:layout_marginTop    = "10dp"
+            android:text                = "@string/button_register"
+            android:onClick             = "register"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
