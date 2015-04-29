@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150421114338) do
+ActiveRecord::Schema.define(:version => 20150422084845) do
 
   create_table "emergencies", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(:version => 20150421114338) do
     t.boolean  "hospital_visted"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "locations", :force => true do |t|
+    t.integer  "mfr_id"
+    t.string   "gps_latitude"
+    t.string   "gps_longitude"
+    t.string   "location"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "mfrs", :force => true do |t|
