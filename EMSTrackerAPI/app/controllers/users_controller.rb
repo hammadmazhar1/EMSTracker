@@ -23,5 +23,8 @@ class UsersController < ApplicationController
   def edit
     
   end
+  def get_help
+    redirect_to signup_path
+  end
 
 end

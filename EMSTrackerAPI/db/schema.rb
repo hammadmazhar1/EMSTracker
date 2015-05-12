@@ -11,43 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150422084845) do
+ActiveRecord::Schema.define(:version => 20150512154857) do
 
-  create_table "emergencies", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "mfr_id"
+  create_table "cases", :force => true do |t|
+    t.datetime "day_called"
+    t.string   "time_called"
+    t.datetime "day_resolved"
+    t.string   "time_resolved"
+    t.string   "patient"
+    t.string   "mfr"
     t.string   "location"
-    t.string   "severity"
-    t.datetime "resolve_time"
-    t.boolean  "hospital_visted"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  create_table "locations", :force => true do |t|
-    t.integer  "mfr_id"
-    t.string   "gps_latitude"
-    t.string   "gps_longitude"
-    t.string   "gen_location"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "mfrs", :force => true do |t|
-    t.string "username"
-    t.string "password"
-    t.string "rollno"
-    t.string "name"
-    t.string "gender"
-    t.string "phoneno"
+    t.string   "details"
   end
 
   create_table "users", :force => true do |t|
-    t.string "username"
-    t.string "password"
-    t.string "rollno"
-    t.string "phoneno"
-    t.string "gender"
+    t.string  "username"
+    t.string  "password_digest"
+    t.boolean "mfr"
+    t.string  "name"
+    t.string  "rollno"
+    t.string  "phoneno"
   end
 
 end
