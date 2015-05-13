@@ -1,0 +1,25 @@
+%h1 Add Case
+
+=form_tag cases_path do
+	=label :case, :day_called, 'Day called'
+	=date_select :case, :day_called
+
+	=label :case, :time_called, 'Time called'
+	=text_field :case, :time_called
+
+	=label :case, :day_resolved, 'Day resolved'
+	=text_field :case, :day_resolved
+
+	=label :case, :time_resolved, 'Time resolved'
+	=text_field :case, :time_resolved
+
+	=label :case, :patient, 'Patient name'
+	=text_field :case, :patient
+
+	=label :case, :mfr, 'Attending MFR'
+	=text_field :case, :mfr
+
+	=label :case, :details, 'Details'
+	=text_field :case, :details
+
+	=submit_tag 'Submit Report'

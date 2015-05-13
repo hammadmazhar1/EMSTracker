@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-	has_many :emergencies
-	attr_accessible :username, :password, :rollno, :phoneno, :gender
+	has_secure_password
+	attr_accessible :username,:password_digest,:password,:password_confirmation,:name,:phoneno, :rollno, :gender,:mfr
 end
