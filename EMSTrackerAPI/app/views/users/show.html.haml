@@ -2,7 +2,7 @@
 
 
 -if !is_mfr?
-	=form_tag get_help_path do
+	=form_tag get_help_path ,:method => :POST do
 		=hidden_field_tag 'gps_latitude'
 		=hidden_field_tag 'gps_longitude'
 		=submit_tag 'insert help image'

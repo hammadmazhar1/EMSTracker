@@ -1,0 +1,12 @@
+%h1 HERE
+%table#movies
+	%thead
+		%tr
+      
+	%tbody
+		-	@q.each do |mfrs|
+			%tr
+				%td=mfrs.name
+				%td=mfrs.phoneno
+				%td=mfrs.rollno
+				%td=mfrs.gender

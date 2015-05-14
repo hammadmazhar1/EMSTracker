@@ -8,13 +8,11 @@ class UsersController < ApplicationController
  
   def update
     @user =User.find params[:id]
-    @user.update_attributes!(params[:id])
+    @user.update_attributes!(params[:user])
     flash[:notice] = "User details was successfully updated."
     redirect_to user_path(@user)
   end
   
-  
-
   def new
     # default: render 'new' template
     @user = User.new
@@ -31,7 +29,30 @@ class UsersController < ApplicationController
   end
 
   def get_help
-    redirect_to signup_path
+    ary= Array.new	
+    loc=Location.all
+    lat=params[:gps_latitude]
+    lat=lat.to_f
+    long=params[:gps_latitude]
+    long=long.to_f
+    loc.each do |d|
+	elm= Array.new
+        pos=sqrt((d.gps_latitude.to_f-lat)+(d.gps_latitude.to_f-long))
+        elm.push(pos)
+        elm.push(d.user_name)
+        ary.push(elm)
+    end
+   list= Array.new    
+   ary.sort { |x, y| x.at(0) <=> y.at(0) }
+   ary.each do|mfr|
+   	us =User.find_by_username(mfr.at(1))
+	list.push(us)
+   end
+   @q=list
+  
   end
 
+  def get_mfr
+	
+  end 
 end
