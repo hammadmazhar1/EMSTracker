@@ -1,0 +1,4 @@
+%h1 HERE
+
+  = text_field :q
+

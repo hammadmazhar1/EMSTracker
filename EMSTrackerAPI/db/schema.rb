@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20150514141230) do
 
   create_table "cases", :force => true do |t|
-    t.string   "mfr_location"
+    t.datetime "day_called"
     t.string   "time_called"
     t.datetime "day_resolved"
     t.string   "time_resolved"
