@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150512154857) do
+ActiveRecord::Schema.define(:version => 20150514141230) do
 
   create_table "cases", :force => true do |t|
-    t.datetime "day_called"
+    t.string   "mfr_location"
     t.string   "time_called"
     t.datetime "day_resolved"
     t.string   "time_resolved"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(:version => 20150512154857) do
     t.string   "mfr"
     t.string   "location"
     t.string   "details"
+  end
+
+  create_table "kits", :force => true do |t|
+    t.string  "location"
+    t.string  "details"
+    t.boolean "available"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string "user_name"
+    t.string "gps_latitude"
+    t.string "gps_longitude"
+    t.string "location"
   end
 
   create_table "users", :force => true do |t|

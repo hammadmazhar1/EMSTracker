@@ -1,10 +1,19 @@
-%h1 Home Page
+-# edit.html.haml using partial
 
-	=form_tag login_path do
-	=label :session, :username, 'Username'
-	=text_field :session, 'roll_number'
-	
-	=label :session,:password, 'Password'
-	=password_field :session, 'password'
+%h1 Edit Existing User
 
-	= submit_tag 'Log In'
+= form_tag user_path(@user), :method => :put do
+
+  = label :user, :password, 'Password'
+  = password_field :user, 'password'
+
+  = label :user, :password_confirmation, 'Confirm password'
+  = password_field :user, 'password_confirmation'
+
+  = label :user, :rollno, 'Roll Number'
+  = text_field :user, 'rollno'
+
+  = label :user, :phoneno, 'Phone Number'
+  = text_field :user, 'phoneno'
+
+  = submit_tag 'Update Changes'

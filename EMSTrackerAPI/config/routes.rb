@@ -7,7 +7,7 @@ EMSTrackerAPI::Application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  get 'get_help' => 'users#get_help'
+  post 'get_help' => 'users#get_help'
   resources :users
   resources :cases
   #match ':users(/:closest_mfr(/:id))', as: :user_mfr, :via =>[:get]

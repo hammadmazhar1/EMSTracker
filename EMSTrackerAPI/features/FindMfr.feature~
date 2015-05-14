@@ -31,6 +31,7 @@ Background: database status
 
 Scenario: get nearest MFR
 	Given I am on the login page
+	Then show me the page
 	When I login as User "hammadm"
   Then I am on the details page for "hammadm"
 	And my GPS coordinates are "31.470855", "73.412103"

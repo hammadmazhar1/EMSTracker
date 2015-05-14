@@ -5,7 +5,13 @@ class UsersController < ApplicationController
     @user = User.find(id) # look up user by unique ID
     # will render app/views/users/show.<extension> by default
   end
-
+ 
+  def update
+    @user =User.find params[:id]
+    @user.update_attributes!(params[:user])
+    flash[:notice] = "User details was successfully updated."
+    redirect_to user_path(@user)
+  end
   
   
 
@@ -21,8 +27,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    
+    @user =User.find params[:id]
   end
+
   def get_help
     redirect_to signup_path
   end
