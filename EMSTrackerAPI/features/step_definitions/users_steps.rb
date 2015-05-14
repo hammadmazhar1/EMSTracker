@@ -12,7 +12,7 @@ end
 #Given /I am on the (.*) page/ do |page|
 #	case page
 #end
-When /my GPS coordinates are "(.*)" and "(.*)"/ do |lat, long|
+When /my GPS coordinates are "(.*)", "(.*)"/ do |lat, long|
 	find(:xpath, "//input[@id='gps_latitude']").set lat
 	find(:xpath, "//input[@id='gps_longitude']").set long
 end
@@ -20,9 +20,8 @@ end
 And /I login as User "(.*)"/ do|val|
 	fill_in('Username', :with => val)
 	fill_in('Password', :with => val)
-	 click_button('Login')
+	 click_button('Log In')
 end
 
-Then /I am on the details page for "(.*)"/
 	
 	

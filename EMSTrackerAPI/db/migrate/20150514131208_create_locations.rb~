@@ -1,15 +1,10 @@
 class CreateLocations < ActiveRecord::Migration
   def up
   	create_table :cases do |t|
-  		t.string   :mfr_location
-		t.string   :time_called
-  		t.string   :time_called
-  		t.datetime :day_resolved
-  		t.string   :time_resolved
-  		t.string   :patient
-  		t.string   :mfr
-  		t.string   :location
-  		t.string   :details 
+  		t.string   :user_name 
+		t.string   :gps_latitude 
+		t.string   :gps_longitude 
+		t.string   :location
   	end
   end
 

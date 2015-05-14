@@ -15,23 +15,23 @@ Background: database status
   | alinam       | alinam   | Alina Mahmood | 16110568 | 03132545682 | Female | false|
   | maham        | maham    | Maha Munawar  | 16100020 | 03322485121 | Female | false|
   | alBato       | alBato   | Alishba Batool| 16110168 | 03238845682 | Female | false|
-  
+
    And the following Users exist:
    | username | password | rollno   | phoneno     | gender |
    | hammadm  | hammadm  | 16100032 | 03322485721 | Male   |
    | alinam	 | alinam   | 16110568 | 03132545682 | Female |
   
    And the following Locations exist:
-   | mfr_id | gps_latitude | gps_longitude | location |
-   |	1	| 31.470855    | 74.412103     | M-6      |
-   |    2	| 31.380445	   |	74.412103  |	SSE	  |
+  | user_name | gps_latitude | gps_longitude | location |
+  | usaidm      | 31.470855    | 74.412103     | M-6      |
+  | aminas      | 31.380445    | 74.412103     | SSE      |
   
    And the following Kits exist:
-   | location  | details 						| available |
-   | SSE       | First Floor Lobby	  | yes				|
-   | SportsCom | EMS Room            | no        |
- 	| Rec Room	| PDC stall						| yes				|
-	
+  | location  | details 			| available |
+  | SSE       | First Floor Lobby	| true		|
+  | SportsCom | EMS Room            | false     |
+  | Rec Room  | PDC stall			| true		|
+
  Scenario: get available kits
  Given I am on the home page
  And I am logged in as MFR "usaidm"

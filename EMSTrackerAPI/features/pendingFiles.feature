@@ -1,4 +1,4 @@
-Feature 
+Feature: 
  	As an MFR
  	As I need to update details about cases I have treated
  	I should be able to see any pending cases with imcomplete details
@@ -17,15 +17,15 @@ Feature
   | alBato       | alBato   | Alishba Batool| 16110168 | 03238845682 | Female | false|
   
    And the following Locations exist:
-  | mfr_id | gps_latitude | gps_longitude | location |
-  | 1      | 31.470855    | 74.412103     | M-6      |
-  | 2      | 31.380445    | 74.412103     | SSE      |
-  
+  | user_name | gps_latitude | gps_longitude | location |
+  | usaidm      | 31.470855    | 74.412103     | M-6      |
+  | aminas      | 31.380445    | 74.412103     | SSE      |
+
    And the following Kits exist:
-  | location  | details             | available |
-  | SSE       | First Floor Lobby   | yes       |
-  | SportsCom | EMS Room            | no        |
-  | Rec Room  | PDC stall           | yes       |
+  | location  | details 			| available |
+  | SSE       | First Floor Lobby	| true		|
+  | SportsCom | EMS Room            | false     |
+  | Rec Room  | PDC stall			| true		|
 	
  	And the following Emergencies exist:
 	

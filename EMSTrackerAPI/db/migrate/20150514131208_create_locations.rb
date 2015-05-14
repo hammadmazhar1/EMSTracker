@@ -1,6 +1,6 @@
 class CreateLocations < ActiveRecord::Migration
   def up
-  	create_table :cases do |t|
+  	create_table :locations do |t|
   		t.string   :user_name 
 		t.string   :gps_latitude 
 		t.string   :gps_longitude 

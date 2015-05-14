@@ -24,9 +24,10 @@ module NavigationHelpers
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
     
-    when /^the details page for "(.*)"$/ 
+    when /^the details page for "(.*)"$/
+	puts $1 
 	user = User.find_by_username $1;
- 	user_path(User);
+ 	user_path(user);
     else
       begin
         page_name =~ /^the (.*) page$/
