@@ -1,14 +1,19 @@
-%h1 Home Page
+-# edit.html.haml using partial
 
+%h1 Edit Existing User
 
--if !is_mfr?
-	=hidden_field_tag 'gps_latitude'
-	=hidden_field_tag 'gps_longitude'
-	=link_to "Edit Details", edit_user_path(current_user.id)
-	=link_to "Log Out", logout_path, :method => :delete
-	=link_to image_tag('help.jpg'), get_help_path
+= form_tag edit_user_path(@user), :method => :put do
 
--else
-	=link_to "Enter new case", new_case_path
-	=link_to "Edit details", edit_user_path(current_user.id)
-	=link_to "Log Out", logout_path, :method => :delete
+  = label :user, :password, 'Password'
+  = password_field :user, 'password'
+
+  = label :user, :password_confirmation, 'Confirm password'
+  = password_field :user, 'password_confirmation'
+
+  = label :user, :rollno, 'Roll Number'
+  = text_field :user, 'rollno'
+
+  = label :user, :phoneno, 'Phone Number'
+  = text_field :user, 'phoneno'
+
+  = submit_tag 'Update Changes'
