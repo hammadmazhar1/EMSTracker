@@ -1,7 +1,8 @@
 class CreateCases < ActiveRecord::Migration
   def up
   	create_table :cases do |t|
-  		t.datetime :day_called
+		t.string   :mfr_location
+		t.string   :time_called
   		t.string   :time_called
   		t.datetime :day_resolved
   		t.string   :time_resolved
@@ -9,6 +10,7 @@ class CreateCases < ActiveRecord::Migration
   		t.string   :mfr
   		t.string   :location
   		t.string   :details 
+		
   	end
   end
 
