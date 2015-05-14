@@ -1,4 +1,17 @@
-%h1 EMSTracker
+%div.mybutt
+	%p#myimageholder 
+		=image_tag "EMS Logo.png", :id => "myimage"
+		
+	%h1#myheading EMSTracker
 
+<<<<<<< HEAD
+	%table{:border => 20}
+		%tbody
+			%tr 
+				%td#mytablerow= link_to 'Login', login_path, :id => "mylink"
+			%tr 
+				%td#mytablerow=link_to 'Signup', signup_path , :id => "mylink"
+=======
 =link_to 'Login', login_path, class: "button_link"
 =link_to 'Signup', signup_path , class: "button_link"
+>>>>>>> a12854e0cda40a2898a5161da0763e9529ed95a9
