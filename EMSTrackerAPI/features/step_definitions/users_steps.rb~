@@ -1,4 +1,4 @@
-Given /the following Users exist/ do |mfrs_table|
+Given /the following MFRs exist/ do |mfrs_table|
   mfrs_table.hashes.each do |mfr|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
