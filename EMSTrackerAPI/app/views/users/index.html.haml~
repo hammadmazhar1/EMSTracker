@@ -1,0 +1,8 @@
+%h1 EMS Tracker
+%h2 Welcome
+= image_tag 'logo.jpg'
+%br
+= button_to 'Login'
+%br
+= button_to 'Sign-up'
+

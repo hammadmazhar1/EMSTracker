@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20150512154857) do
     t.string  "name"
     t.string  "rollno"
     t.string  "phoneno"
+    t.string  "gender"
   end
 
 end

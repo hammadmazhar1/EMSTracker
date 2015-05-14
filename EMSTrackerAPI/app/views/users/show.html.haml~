@@ -6,6 +6,7 @@
 	=hidden_field_tag 'gps_longitude'
 	=link_to "Edit Details", edit_user_path(current_user.id)
 	=link_to "Log Out", logout_path, :method => :delete
+	= br
 	=link_to image_tag('help.jpg'), get_help_path
 
 -else

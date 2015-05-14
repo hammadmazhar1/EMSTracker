@@ -1,0 +1,10 @@
+%h1 Home Page
+
+	=form_tag login_path do
+	=label :session, :username, 'Username'
+	=text_field :session, 'roll_number'
+	
+	=label :session,:password, 'Password'
+	=password_field :session, 'password'
+
+	= submit_tag 'Log In'
