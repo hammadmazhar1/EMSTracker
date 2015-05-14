@@ -1,0 +1,54 @@
+div.mybutt {
+	position: relative;
+}
+
+#mylink {
+	font-size: 30px;
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+	margin: auto;
+}
+
+#myheading {
+	margin: auto;
+	text-align: center;
+	padding-top: 10px;
+	font-size: 60px;
+}
+
+#myimageholder {
+	text-align:center;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding:0px;
+}
+
+#myimage {
+	width: 150px;
+	height: 150px;
+}
+
+div.mybutt table {
+	margin: 0;
+	position: absolute;
+	width: 400px;
+	top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 60%);
+	background-color: #FFCC66;
+}
+
+#mytablerow {
+	height: 75px;
+	text-align: center;
+}
+
+.myh1 {
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	background-color: #FFF000;
+	color: #000000;
+}
