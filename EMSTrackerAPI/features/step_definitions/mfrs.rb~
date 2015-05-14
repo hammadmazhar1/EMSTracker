@@ -20,9 +20,10 @@ end
 And /I login as User "(.*)"/ do|val|
 	fill_in('Username', :with => val)
 	fill_in('Password', :with => val)
-	 click_button('Login')
+	 click_button(login)
 end
 
 Then /I am on the details page for "(.*)"/
 	
-	
+When /I press "(.*)"
+Then /I should see  "(.*)"
