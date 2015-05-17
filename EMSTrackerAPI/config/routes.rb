@@ -11,6 +11,7 @@ EMSTrackerAPI::Application.routes.draw do
   put 'get_mfr' => 'users#get_mfr'
   resources :users
   resources :cases
+  resources :locations
   #match ':users(/:closest_mfr(/:id))', as: :user_mfr, :via =>[:get]
     
 # Sample of regular route:
