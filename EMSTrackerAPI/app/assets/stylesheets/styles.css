@@ -3,7 +3,7 @@ div.mybutt {
 }
 
 #mylink {
-	font-size: 30px;
+	font-size: 25px;
 	color: #000000;
 	font-weight: bold;
 	text-decoration: none;
@@ -30,20 +30,36 @@ div.mybutt {
 	max-width: 175px;
 }
 
+#myimage2 {
+	width: 50%;
+	max-width: 175px;
+}
+
 div.mybutt table {
 	margin: 0;
 	position: absolute;
-	width: 50%;
+	width: 70%;
 	max-width: 400px;
-	margin-left: 25%;
-	margin-right: 25%;
+	margin-left: 15%;
+	margin-right: 15%;
 	margin-top: 10%;
 	background-color: #FFCC66;
 }
 
 #mytablerow {
 	height: 5%;
+	width:400px;
 	max-height: 75px;
+	text-align: center;
+}
+
+#mytablecol {
+	width:50%;
+	text-align: center;
+}
+
+#mytablecol {
+	width:50%;
 	text-align: center;
 }
 

@@ -1,17 +1,34 @@
-%h1 Home Page
-
-
 -if !is_mfr?
-	=form_tag get_help_path ,:method => :POST do
-		=hidden_field_tag 'gps_latitude'
-		=hidden_field_tag 'gps_longitude'
-		=submit_tag 'insert help image'
+	%div.mybutt
+		%h1#myheading Home Page
 
-	=link_to "Edit Details", edit_user_path(current_user.id)
-	=link_to "Log Out", logout_path, :method => :delete
-	
+		%table{:border => 10}
+			#myimageholder
+				=form_tag get_help_path ,:method => :POST do
+					=hidden_field_tag 'gps_latitude'
+					=hidden_field_tag 'gps_longitude'
+					=image_submit_tag "help.jpg", :id => "myimage2"
+			%tbody
+				%tr#mytablerow 
+					%td#mytablecol=link_to "Edit Details", edit_user_path(current_user.id), :id => "mylink"
+				%tr
+				%tr
+				%tr#mytablerow 
+					%td#mytablecol=link_to "Log Out", logout_path, :method => :delete, :id => "mylink"
 
 -else
-	=link_to "Enter new case", new_case_path
-	=link_to "Edit details", edit_user_path(current_user.id)
-	=link_to "Log Out", logout_path, :method => :delete
+	%div.mybutt
+		%h1 Home Page
+
+		%table{:border => 10}
+			%tbody
+				%tr#mytablerow 
+					%td=link_to "Enter new case", new_case_path, :id => "mylink"
+				%tr
+				%tr
+				%tr#mytablerow 
+					%td=link_to "Edit details", edit_user_path(current_user.id), :id => "mylink"
+				%tr
+				%tr
+				%tr
+					=link_to "Log Out", logout_path, :method => :delete, :id => "mylink"
