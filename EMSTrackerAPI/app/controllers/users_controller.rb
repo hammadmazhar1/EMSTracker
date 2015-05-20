@@ -8,6 +8,10 @@ class UsersController < ApplicationController
  
   def update
     @user =User.find params[:id]
+    if params[:user][:password] != params[:user][:password_confirmation]
+      flash[:warning] = "Passwords do not match"
+      redirect_to edit_user(@user)
+    end
     @user.update_attributes!(params[:user])
     flash[:notice] = "User details was successfully updated."
     redirect_to user_path(@user)
