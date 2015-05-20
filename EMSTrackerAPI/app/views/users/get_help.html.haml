@@ -6,7 +6,8 @@
 	%tbody
 		-	@q.each do |mfrs|
 			%tr
-				%td=mfrs.name
-				%td=mfrs.phoneno
-				%td=mfrs.rollno
-				%td=mfrs.gender
+				%td=mfrs.at(0).name
+				%td=mfrs.at(0).phoneno
+				%td=mfrs.at(0).rollno
+				%td=mfrs.at(0).gender
+				%td=mfrs.at(1)

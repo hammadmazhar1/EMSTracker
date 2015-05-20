@@ -1,8 +1,11 @@
 class LocationsController < ApplicationController
 	def create
 		cur_loc = params[:location]
-		cur_long = cur_loc[:gps_longitude].to_f
-		cur_lat = cur_loc[:gps_latitude].to_f
+		cur_loc[:user_name] = current_user.username
+		cur_long = cur_loc[:gps_longitude]
+		cur_lat = cur_loc[:gps_latitude]
+		cur_long = cur_long.to_f
+		cur_lat = cur_lat.to_f
 		if cur_long >=74.4103 && cur_long <= 74.4112
 			if cur_lat <=31.4724 && cur_lat >= 31.4713
 				cur_loc[:location] = "SSE"
@@ -31,21 +34,23 @@ class LocationsController < ApplicationController
 			if (!@location.nil?)
 				@location.delete
 			end
-			redirect_to new_location
+			redirect_to new_location_path
 		end
 		@location =  Location.find_by_user_name(cur_loc[:user_name])
-		if (@location.nil?)
+		if (!@location.nil?)
 			@location.update_attributes(cur_loc)
+			flash[:notice] = "Location updated"
 		else
 			Location.create(cur_loc)
+			flash[:notice] = "Location added"
 		end
 	end
 
 	def destroy
 		username = params[:location][:user_name]
 		location = Location.find_by_user_name(username);
-		if (!location.nil?) {
+		if (!location.nil?) 
 			location.delete
-		}
+		end
 	end
 end

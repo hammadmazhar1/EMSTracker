@@ -2,15 +2,17 @@ class UsersController < ApplicationController
 
   def show
     id = params[:id] # retrieve user ID from URI route
+    session[:user_id] = id
     @user = User.find(id) # look up user by unique ID
     # will render app/views/users/show.<extension> by default
   end
  
   def update
+    session[:user_id] = params[:id]
     @user =User.find params[:id]
     if params[:user][:password] != params[:user][:password_confirmation]
       flash[:warning] = "Passwords do not match"
-      redirect_to edit_user(@user)
+      redirect_to edit_user_path(@user)
     end
     @user.update_attributes!(params[:user])
     flash[:notice] = "User details was successfully updated."
@@ -29,30 +31,36 @@ class UsersController < ApplicationController
   end
 
   def edit
+
     @user =User.find params[:id]
   end
 
   def get_help
+    session[:user_id] = params[:id]
     ary= Array.new	
-    loc=Location.all
-    lat=params[:gps_latitude]
-    lat=lat.to_f
-    long=params[:gps_latitude]
-    long=long.to_f
-    loc.each do |d|
-	elm= Array.new
+      loc=Location.all
+      lat=params[:gps_latitude]
+      lat=lat.to_f
+      long=params[:gps_latitude]
+      long=long.to_f
+      loc.each do |d|
+  	  elm= Array.new
         pos=Math.sqrt((d.gps_latitude.to_f-lat)**2+(d.gps_latitude.to_f-long)**2)
         elm.push(pos)
         elm.push(d.user_name)
+        elm.push(d.location)
         ary.push(elm)
+      end
+      list= Array.new    
+      ary.sort { |x, y| x.at(0) <=> y.at(0) }
+      ary.each do|mfr|
+     	us =User.find_by_username(mfr.at(1))
+      elm= Array.new
+      elm.push(us)
+      elm.push(mfr.at(2))
+  	  list.push(elm)
     end
-   list= Array.new    
-   ary.sort { |x, y| x.at(0) <=> y.at(0) }
-   ary.each do|mfr|
-   	us =User.find_by_username(mfr.at(1))
-	list.push(us)
-   end
-   @q=list
+    @q=list
   
   end
 

@@ -1,3 +1,6 @@
+=form_tag get_help_path, :method => :POST do
+	=hidden_field_tag 'my_id', current_user.id
+
 -if !is_mfr?
 	%div.mybutt
 		%h1#myheading Home Page
@@ -18,7 +21,7 @@
 
 -else
 	%div.mybutt
-		%h1 Home Page
+		%h1#myheading Home Page
 
 		%table{:border => 10}
 			%tbody
@@ -30,5 +33,9 @@
 					%td=link_to "Edit details", edit_user_path(current_user.id), :id => "mylink"
 				%tr
 				%tr
+				%tr#mytablerow
+					%td=link_to "Log Out", logout_path, :method => :delete, :id => "mylink"
 				%tr
-					=link_to "Log Out", logout_path, :method => :delete, :id => "mylink"
+				%tr
+				%tr#mytablerow
+					%td=link_to "Edit Location", new_location_path ,:id => "mylink"

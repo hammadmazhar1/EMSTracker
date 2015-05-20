@@ -9,6 +9,7 @@ EMSTrackerAPI::Application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   post 'get_help' => 'users#get_help'
   put 'get_mfr' => 'users#get_mfr'
+  put 'set_location' => 'locations#create'
   resources :users
   resources :cases
   resources :locations
