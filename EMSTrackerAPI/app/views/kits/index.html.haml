@@ -1,0 +1,19 @@
+%h1 Kits
+
+%table#kits
+	%thead
+		%tr
+			%th= "Kit location"
+			%th= "Details"
+			%th= "Availability"
+	%tbody
+		- @kits.each do |kit|
+			%tr
+				%td= kit.location 
+				%td= kit.details
+				%td= kit.available
+
+%table#links
+	%tr
+	%tr#mytablerow
+		%td=link_to "Back to homepage", user_path(current_user), :id => "mylink"

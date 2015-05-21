@@ -61,10 +61,12 @@ class UsersController < ApplicationController
       ary.sort { |x, y| x.at(0) <=> y.at(0) }
       ary.each do|mfr|
      	  us =User.find_by_id(mfr.at(1))
-        elm= Array.new
-        elm.push(us)
-        elm.push(mfr.at(2))
-  	    list.push(elm)
+        if (us.mfr) 
+          elm= Array.new
+          elm.push(us)
+          elm.push(mfr.at(2))
+  	     list.push(elm)
+        end
       end
     @q=list
   
