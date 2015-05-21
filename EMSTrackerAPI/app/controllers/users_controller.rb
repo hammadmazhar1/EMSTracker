@@ -25,9 +25,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create!(params[:user])
-    flash[:notice] = "#{@user.username} was successfully added as a user."
-    redirect_to users_path
+    prev_user = User.find_by_username(params[:user][:username])
+    if prev_user.nil?
+      @user = User.create!(params[:user])
+      flash[:notice] = "#{@user.username} was successfully added as a user."
+      redirect_to users_path
+    else
+      flash[:warning] = "Username has already been taken"
+      redirect_to new_user_path
+    end
   end
 
   def edit
@@ -44,7 +50,7 @@ class UsersController < ApplicationController
       long=params[:gps_latitude]
       long=long.to_f
       loc.each do |d|
-  	  elm= Array.new
+  	    elm= Array.new
         pos=Math.sqrt((d.gps_latitude.to_f-lat)**2+(d.gps_latitude.to_f-long)**2)
         elm.push(pos)
         elm.push(d.user_name)
@@ -54,17 +60,13 @@ class UsersController < ApplicationController
       list= Array.new    
       ary.sort { |x, y| x.at(0) <=> y.at(0) }
       ary.each do|mfr|
-     	us =User.find_by_username(mfr.at(1))
-      elm= Array.new
-      elm.push(us)
-      elm.push(mfr.at(2))
-  	  list.push(elm)
-    end
+     	  us =User.find_by_username(mfr.at(1))
+        elm= Array.new
+        elm.push(us)
+        elm.push(mfr.at(2))
+  	    list.push(elm)
+      end
     @q=list
   
-  end
-
-  def get_mfr
-	
   end 
 end
