@@ -1,3 +1,7 @@
+-[:notice, :error, :success].each do |key|
+  -unless flash[key].blank?
+    %p{ :class => "flash #{key}" }= flash[key]
+
 %h1 Sign up
 
 = form_tag users_path do
@@ -6,7 +10,7 @@
   = text_field :user, 'username'
 
   = label :user, :name, 'Full Name'
-  = text_field, :user, 'name'
+  = text_field :user, 'name'
   
   = label :user, :password, 'Password'
   = password_field :user, 'password'

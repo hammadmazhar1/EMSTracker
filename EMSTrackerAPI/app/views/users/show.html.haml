@@ -1,3 +1,7 @@
+-[:notice, :error, :success].each do |key|
+	-unless flash[key].blank?
+		%p{ :class => "flash #{key}" }= flash[key]
+
 =form_tag get_help_path, :method => :POST do
 	=hidden_field_tag 'my_id', current_user.id
 
@@ -5,7 +9,7 @@
 	%div.mybutt
 		%h1#myheading Home Page
 
-		%table{:border => 10}
+		%table{:border => 10, :class => "mytable"}
 			#myimageholder
 				=form_tag get_help_path ,:method => :POST do
 					=hidden_field_tag 'gps_latitude'

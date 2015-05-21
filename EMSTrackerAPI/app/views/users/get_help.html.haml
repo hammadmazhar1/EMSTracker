@@ -1,4 +1,8 @@
-%h1 HERE
+-[:notice, :error, :success].each do |key|
+	-unless flash[key].blank?
+		%p{ :class => "flash #{key}" }= flash[key]
+
+%h1
 %table#movies
 	%thead
 		%tr
