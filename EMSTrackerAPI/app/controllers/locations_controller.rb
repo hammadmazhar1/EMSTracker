@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
 	def create
 		cur_loc = params[:location]
-		cur_loc[:user_name] = current_user.username
+		session[:user_id] = cur_loc[:user_name]
 		cur_long = cur_loc[:gps_longitude]
 		cur_lat = cur_loc[:gps_latitude]
 		cur_long = cur_long.to_f
