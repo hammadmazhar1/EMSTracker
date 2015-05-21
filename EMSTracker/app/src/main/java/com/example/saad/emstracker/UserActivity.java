@@ -1,5 +1,6 @@
 package com.example.saad.emstracker;
 
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -25,6 +26,12 @@ public class UserActivity extends ActionBarActivity implements GoogleApiClient.C
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("USER");
+        if (name != null) {
+            Toast.makeText(getApplicationContext(), "Welcome, " + name, Toast.LENGTH_LONG).show();
+        }
+
         setContentView(R.layout.activity_user);
         buildGoogleApiClient();
     }
@@ -76,7 +83,8 @@ public class UserActivity extends ActionBarActivity implements GoogleApiClient.C
     }
 
     public void helpme(View view) {
-
+        Intent intent = new Intent(this, UserActivityDisplayMFR.class);
+        startActivity(intent);
     }
 
     @Override
@@ -84,11 +92,10 @@ public class UserActivity extends ActionBarActivity implements GoogleApiClient.C
         Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (mLastLocation != null) {
             TextView textview = (TextView) findViewById(R.id.user_display);
-            textview.setText(String.valueOf(mLastLocation.getLatitude()));
-            textview.setText(String.valueOf(mLastLocation.getLongitude()));
-            Toast.makeText(this, "GOT IT", Toast.LENGTH_SHORT).show();
+            textview.setText(String.valueOf(mLastLocation.getLatitude()) + " , " + String.valueOf(mLastLocation.getLongitude()));
+//            Toast.makeText(this, "GOT IT", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "DONT GOT IT", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "DON'T GOT IT", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -100,5 +107,11 @@ public class UserActivity extends ActionBarActivity implements GoogleApiClient.C
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
         Toast.makeText(this, "IT DIDN'T WORK!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 }

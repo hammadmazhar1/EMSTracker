@@ -1,5 +1,6 @@
 package com.example.saad.emstracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
@@ -37,8 +38,15 @@ public class RegisterActivity extends ActionBarActivity {
         String s3 = ((EditText) findViewById(R.id.register_rollno)).getText().toString();
         String s4 = ((EditText) findViewById(R.id.register_phoneno)).getText().toString();
         if (!s1.equals("") && !s2.equals("") && !s3.equals("") && !s4.equals("")) {
-//            Intent intent = new Intent(this, LoggedInActivity.class);
-//            startActivity(intent);
+            boolean success = true;
+
+            // success = POST REQUEST
+
+            Intent intent = new Intent(this, HomeActivity.class);
+            intent.putExtra("SUCCESS", success);
+            intent.putExtra("REGISTERED", true);
+            startActivity(intent);
+            finish();
         } else {
             Toast.makeText(this, "Please fill in all the fields.", Toast.LENGTH_LONG).show();
         }
