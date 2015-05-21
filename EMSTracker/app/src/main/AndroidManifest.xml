@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.saad.emstracker" >
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/emslogo"
@@ -27,6 +30,30 @@
         <activity
             android:name=".UserActivity"
             android:label="@string/title_activity_user" >
+        </activity>
+        <activity
+            android:name=".UserActivityDisplayMFR"
+            android:label="@string/title_activity_user_activity_display_mfr"
+            android:parentActivityName=".UserActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="UserActivity" />
+        </activity>
+        <activity
+            android:name=".MFRActivity"
+            android:label="@string/title_activity_mfr"
+            android:parentActivityName=".HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="HomeActivity" />
+        </activity>
+        <activity
+            android:name=".WebViewActivity"
+            android:label="@string/title_activity_web_view"
+            android:parentActivityName=".HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="HomeActivity" />
         </activity>
     </application>
 

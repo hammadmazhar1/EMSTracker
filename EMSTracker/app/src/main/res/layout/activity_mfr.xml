@@ -1,0 +1,41 @@
+<RelativeLayout
+    xmlns:android                   = "http://schemas.android.com/apk/res/android"
+    android:layout_width            = "match_parent"
+    android:layout_height           = "match_parent">
+
+    <LinearLayout
+        android:id                      = "@+id/home_linearLayout"
+        android:layout_width            = "wrap_content"
+        android:layout_height           = "wrap_content"
+        android:orientation             = "vertical"
+        android:layout_centerInParent   = "true">
+
+        <Button
+            android:id                  = "@+id/mfr_pendingForms"
+            android:layout_width        = "200dp"
+            android:layout_height       = "60dp"
+            android:layout_marginTop    = "10dp"
+            android:text                = "@string/button_pendingForms"
+            android:onClick             = "pendingForms"
+            />
+
+        <Button
+            android:id                  = "@+id/mfr_availableKits"
+            android:layout_width        = "200dp"
+            android:layout_height       = "60dp"
+            android:layout_marginTop    = "10dp"
+            android:text                = "@string/button_availableKits"
+            android:onClick             = "availableKits"
+            />
+
+        <Button
+            android:id                  = "@+id/mfr_otherMFRs"
+            android:layout_width        = "200dp"
+            android:layout_height       = "60dp"
+            android:layout_marginTop    = "10dp"
+            android:text                = "@string/button_otherMFRs"
+            android:onClick             = "otherMFRs"
+            />
+
+    </LinearLayout>
+</RelativeLayout>

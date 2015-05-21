@@ -1,14 +1,29 @@
 <resources>
-    <string name="app_name">            EMS Tracker                         </string>
-    <string name="app_settings">        Settings                            </string>
-    <string name="hint_username">       username                            </string>
-    <string name="hint_password">       password                            </string>
-    <string name="hint_rollno">         roll number (e.g. 16100000)         </string>
-    <string name="hint_phoneno">        phone number                        </string>
-    <string name="button_login">        Login                               </string>
-    <string name="button_register">     Register                            </string>
-    <string name="button_helpme">       Help Me!                            </string>
+    <string name="app_name">                EMS Tracker                         </string>
+    <string name="app_settings">            Settings                            </string>
 
-    <string name="title_activity_register">   Register                      </string>
-    <string name="title_activity_user">       User                          </string>
+    <string name="hint_username">           username                            </string>
+    <string name="hint_password">           password                            </string>
+    <string name="hint_rollno">             roll number (e.g. 16100000)         </string>
+    <string name="hint_phoneno">            phone number                        </string>
+
+    <string name="button_login">            Login                               </string>
+    <string name="button_register">         Register                            </string>
+    <string name="button_helpme">           Help Me!                            </string>
+    <string name="button_nextMFR">          Next MFR                            </string>
+    <string name="button_pendingForms">     Fill Pending Forms                  </string>
+    <string name="button_availableKits">    Check Available Kits                </string>
+    <string name="button_otherMFRs">        Other Active MFRs                   </string>
+
+    <string name="placeholder_name">        Name:                               </string>
+    <string name="placeholder_number">      Number:                             </string>
+
+    <string name="title_activity_register">                     Register        </string>
+    <string name="title_activity_user">                         User            </string>
+    <string name="title_activity_user_activity_display_mfr">    MFR             </string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_mfr">MFRActivity</string>
+    <string name="title_activity_web_view">EMS Tracker</string>
 </resources>
