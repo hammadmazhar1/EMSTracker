@@ -31,7 +31,7 @@ class UsersController < ApplicationController
       flash[:notice] = "#{@user.username} was successfully added as a user."
       redirect_to users_path
     else
-      flash[:warning] = "Username has already been taken"
+      flash[:error] = "Username has already been taken"
       redirect_to new_user_path
     end
   end
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
       list= Array.new    
       ary.sort { |x, y| x.at(0) <=> y.at(0) }
       ary.each do|mfr|
-     	  us =User.find_by_username(mfr.at(1))
+     	  us =User.find_by_id(mfr.at(1))
         elm= Array.new
         elm.push(us)
         elm.push(mfr.at(2))
