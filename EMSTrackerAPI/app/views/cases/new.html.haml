@@ -5,44 +5,38 @@
 %h1#myheading Add Case
 
 =form_tag cases_path do
-	=label :case, :day_called, 'Day called'
 	%br
+	=label :case, :day_called, 'Day called'
 	%br
 	=date_select :case, :day_called
 	%br
 	%br
 	=label :case, :time_called, 'Time called'
 	%br
-	%br
 	=text_field :case, :time_called
 	%br
 	%br
 	=label :case, :day_resolved, 'Day resolved'
-	%br
 	%br
 	=text_field :case, :day_resolved
 	%br
 	%br
 	=label :case, :time_resolved, 'Time resolved'
 	%br
-	%br
 	=text_field :case, :time_resolved
 	%br
 	%br
 	=label :case, :patient, 'Patient name'
-	%br
 	%br
 	=text_field :case, :patient
 	%br
 	%br
 	=label :case, :mfr, 'Attending MFR'
 	%br
-	%br
 	=text_field :case, :mfr
 	%br
 	%br
 	=label :case, :details, 'Details'
-	%br
 	%br
 	=text_field :case, :details
 	%br
