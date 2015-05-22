@@ -43,9 +43,9 @@ class UsersController < ApplicationController
   end
 
   def get_help
-    session[:user_id] = params[:id]
+    # session[:user_id] = params[:id]
     ary= Array.new
-      userloc = Location.find_by_username(params[:id])
+      userloc = Location.find_by_user_name(session[:user_id])
       loc=Location.all
       lat=userloc.gps_latitude
       lat=lat.to_f

@@ -1,0 +1,20 @@
+-[:notice, :error, :success].each do |key|
+	-unless flash[key].blank?
+		%p{ :class => "flash #{key}" }= flash[key]
+
+%h1 Enter Location
+
+=form_tag locations_path do
+	=label :location, :user_name, 'Username'
+	=text_field :location, :user_name
+
+	=label :location, :gps_latitude, 'Latitude'
+	=text_field :location, :gps_latitude
+
+	=label :location, :gps_longitude, 'Longitude'
+	=text_field :location, :gps_longitude
+
+	=label :location, :location, 'Location'
+	=text_field :location, :location
+
+	=submit_tag 'SubmitLocation'
