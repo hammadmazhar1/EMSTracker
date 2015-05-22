@@ -22,10 +22,30 @@
             />
 
         <EditText
+            android:id                  = "@+id/register_fullname"
+            android:layout_width        = "200dp"
+            android:layout_height       = "60dp"
+            android:hint                = "@string/hint_fullname"
+            android:gravity             = "center"
+            android:inputType           = "text"
+            android:imeOptions          = "actionNext"
+            />
+
+        <EditText
             android:id                  = "@+id/register_password"
             android:layout_width        = "200dp"
             android:layout_height       = "60dp"
             android:hint                = "@string/hint_password"
+            android:gravity             = "center"
+            android:inputType           = "textPassword"
+            android:imeOptions          = "actionNext"
+            />
+
+        <EditText
+            android:id                  = "@+id/register_confirmpassword"
+            android:layout_width        = "200dp"
+            android:layout_height       = "60dp"
+            android:hint                = "@string/hint_confirmpassword"
             android:gravity             = "center"
             android:inputType           = "textPassword"
             android:imeOptions          = "actionNext"

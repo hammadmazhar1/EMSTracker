@@ -10,3 +10,7 @@
 	User.create(username: "maham", password: "maham", password_confirmation: "maham", phoneno: "0900078601", rollno: "16100020", name: "Maha Munawar" , gender: "Female", mfr: true)
 	User.create(username: "ash", password: "ash", password_confirmation: "ash", phoneno: "1234567890", rollno: "16100001", name: "Ash Ketchum" , gender: "Male", mfr: false)
 	Location.create(user_name: "1", gps_latitude: "31.4718", gps_longitude: "74.4110", location: "SSE")
+	Location.create(user_name: "2", gps_latitude: "31.618", gps_longitude: "74.89", location: "SDSB")
+	Kit.create(location: "SSE", details: "Under receptionist's desk, CS dept", available: true)
+	Kit.create(location: "Sports Complex", details: "EMS Office", available: true)
+	Kit.create(location: "REDC", details: "Under main desk", available: false)

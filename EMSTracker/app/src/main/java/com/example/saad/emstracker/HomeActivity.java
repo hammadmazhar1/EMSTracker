@@ -23,16 +23,9 @@ public class HomeActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        boolean registered = intent.getBooleanExtra("REGISTERED", false);
-        boolean success = intent.getBooleanExtra("SUCCESS", false);
-        if (registered) {
-            if (success == true) {
-                Toast.makeText(getApplicationContext(), "User successfully created.", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(getApplicationContext(), "An error occurred. Registration failed.", Toast.LENGTH_LONG).show();
-            }
-        }
+//        Intent intent = getIntent();
+//        boolean registered = intent.getBooleanExtra("REGISTERED", false);
+//        boolean success = intent.getBooleanExtra("SUCCESS", false);
 
         setContentView(R.layout.activity_home);
         backButtonCount = 0;

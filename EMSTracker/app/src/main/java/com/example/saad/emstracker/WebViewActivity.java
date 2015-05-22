@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,7 +33,7 @@ public class WebViewActivity extends ActionBarActivity implements GoogleApiClien
     Location mCurrentLocation;
     LocationRequest mLocationRequest;
     String websiteURL = "https://immense-gorge-8570.herokuapp.com";
-    String websiteURL2 = "https://immense-gorge-8570.herokuapp.com/users/";
+    String websiteURL2 = "https://immense-gorge-8570.herokuapp.com/users";
 
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this).addConnectionCallbacks(this)
@@ -69,24 +68,42 @@ public class WebViewActivity extends ActionBarActivity implements GoogleApiClien
 
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
-        params.put("gps_latitude", 23.11);
-        params.put("gps_longitude", 74.12);
+        params.put("location[user_name]", ID);
+        params.put("location[gps_latitude]", lat);
+        params.put("location[gps_longitude]", lon);
+        params.put("location[location]", "");
         client.post(url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
-                Toast.makeText(getApplicationContext(), "STARTED", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "STARTED", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                Toast.makeText(getApplicationContext(), "IT WORKED...MAYBE", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "IT WORKED...MAYBE", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                Toast.makeText(getApplicationContext(), "FAILED", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Updating GPS Failed", Toast.LENGTH_SHORT).show();
+
+//                Log.d("GPSTEST", new String(responseBody));
+//                Log.d("GPSTEST", new String(error.getMessage()));
             }
         });
+    }
+
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            if (!url.equals(websiteURL2)) {
+                return false;
+            }
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
     }
 
     @Override
@@ -95,29 +112,28 @@ public class WebViewActivity extends ActionBarActivity implements GoogleApiClien
         setContentView(R.layout.activity_web_view);
         Intent intent = getIntent();
         ID = intent.getStringExtra("ID");
-        websiteURL2 = websiteURL2 + ID;
-        Log.d("Testing", "URL = " + websiteURL2);
+        String websiteURL3 = websiteURL2 + "/" + ID;
 
-//        buildGoogleApiClient();
-//        createLocationRequest();
+        buildGoogleApiClient();
+        createLocationRequest();
 
         myWebView = (WebView) findViewById(R.id.webview);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        myWebView.setWebViewClient(new WebViewClient());
-        myWebView.loadUrl(websiteURL2);
+        myWebView.setWebViewClient(new MyWebViewClient());
+        myWebView.loadUrl(websiteURL3);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-//        mGoogleApiClient.connect();
+        mGoogleApiClient.connect();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-//        mGoogleApiClient.disconnect();
+        mGoogleApiClient.disconnect();
     }
 
     @Override
