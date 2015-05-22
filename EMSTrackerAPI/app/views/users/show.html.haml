@@ -9,7 +9,7 @@
 	%div.mybutt
 		%h1#myheading Home Page
 
-		%table{:border => 10, :class => "mytable"}
+		%table{:border => 10}
 			#myimageholder
 				=form_tag get_help_path ,:method => :POST do
 					=hidden_field_tag 'gps_latitude'
@@ -33,17 +33,13 @@
 					%td=link_to "Enter new case", new_case_path, :id => "mylink"
 				%tr
 				%tr
+				%tr#mytablerow
+					%td=link_to "Check Kit Availability", kits_path, :id => "mylink"
+				%tr
+				%tr
 				%tr#mytablerow 
 					%td=link_to "Edit details", edit_user_path(current_user.id), :id => "mylink"
 				%tr
 				%tr
 				%tr#mytablerow
 					%td=link_to "Log Out", logout_path, :method => :delete, :id => "mylink"
-				%tr
-				%tr
-				%tr#mytablerow
-					%td=link_to "Edit Location", new_location_path ,:id => "mylink"
-				%tr
-				%tr
-				%tr#mytablerow
-					%td=link_to "Check Kit Availability", kits_path, :id => "mylink"
