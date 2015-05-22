@@ -10,13 +10,14 @@ class UsersController < ApplicationController
   def update
     session[:user_id] = params[:id]
     @user =User.find params[:id]
-    if params[:user][:password] != params[:user][:password_confirmation]
-      flash[:warning] = "Passwords do not match"
+    if !(params[:user][:password] == params[:user][:password_confirmation])
+      flash[:error] = "Passwords do not match"
       redirect_to edit_user_path(@user)
+    else
+      @user.update_attributes!(params[:user])
+      flash[:notice] = "User details was successfully updated."
+      redirect_to user_path(@user)
     end
-    @user.update_attributes!(params[:user])
-    flash[:notice] = "User details was successfully updated."
-    redirect_to user_path(@user)
   end
   
   def new
@@ -43,11 +44,12 @@ class UsersController < ApplicationController
 
   def get_help
     session[:user_id] = params[:id]
-    ary= Array.new	
+    ary= Array.new
+      userloc = Location.find_by_username(params[:id])
       loc=Location.all
-      lat=params[:gps_latitude]
+      lat=userloc.gps_latitude
       lat=lat.to_f
-      long=params[:gps_latitude]
+      long=userloc.gps_longitude
       long=long.to_f
       loc.each do |d|
   	    elm= Array.new
