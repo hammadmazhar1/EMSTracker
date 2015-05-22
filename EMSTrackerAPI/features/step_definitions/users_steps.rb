@@ -13,14 +13,22 @@ end
 #	case page
 #end
 When /my GPS coordinates are "(.*)", "(.*)"/ do |lat, long|
-	find(:xpath, "//input[@id='gps_latitude']").set lat
-	find(:xpath, "//input[@id='gps_longitude']").set long
+	visit ("/locations/new")
+	fill_in("Username", current_user.id)
+	fill_in("Latitude", lat)
+	fill_in("Longitude", long)
+	click_button("SubmitLocation")
 end
 
 And /I login as User "(.*)"/ do|val|
 	fill_in('Username', :with => val)
 	fill_in('Password', :with => val)
 	 click_button('Log In')
+end
+
+Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
+
+	page.body.should match /#{e1}.*#{e2}/m
 end
 
 	

@@ -20,20 +20,19 @@ Background: database status
 
   And the following Locations exist:
   | user_name | gps_latitude | gps_longitude | location |
-  | usaidm      | 31.470855    | 74.412103     | M-6      |
-  | aminas      | 31.380445    | 74.412103     | SSE      |
-  
+  | 1         | 31.470855    | 74.412103     | M-6      |
+  | 2         | 31.380445    | 74.412103     | SSE      |
+  | 3         | 31.470855    | 73.412103     | M-6      |
   And the following Kits exist:
   | location  | details 						| available |
-  | SSE       | First Floor Lobby	  | true		    |
-  | SportsCom | EMS Room            | false       |
-  | Rec Room  | PDC stall						| true		    |
+  | SSE       | First Floor Lobby	  | true		  |
+  | SportsCom | EMS Room            | false     |
+  | Rec Room  | PDC stall						| true		  |
 
 Scenario: get nearest MFR
 	Given I am on the login page
 	When I login as User "hammadm"
   Then I am on the details page for "hammadm"
-	And my GPS coordinates are "31.470855", "73.412103"
 	When I press "Get Help"
-	Then I should see  "Usaid Mandvia"
+	Then I should see  "Usaid Mandvia" before "Amina Saeed"
 

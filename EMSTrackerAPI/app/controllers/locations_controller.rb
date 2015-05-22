@@ -40,9 +40,11 @@ class LocationsController < ApplicationController
 		if (!@location.nil?)
 			@location.update_attributes(cur_loc)
 			flash[:notice] = "Location updated"
+			redirect_to user_path(current_user)
 		else
 			Location.create(cur_loc)
 			flash[:notice] = "Location added"
+			redirect_to user_path(current_user)
 		end
 	end
 

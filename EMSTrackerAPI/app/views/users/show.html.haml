@@ -14,7 +14,7 @@
 				=form_tag get_help_path ,:method => :POST do
 					=hidden_field_tag 'gps_latitude'
 					=hidden_field_tag 'gps_longitude'
-					=image_submit_tag "help.jpg", :id => "myimage2"
+					=image_submit_tag "help.jpg", :id => "myimage2", :title =>"Get Help"
 			%tbody
 				%tr#mytablerow 
 					%td#mytablecol=link_to "Edit Details", edit_user_path(current_user.id), :id => "mylink"

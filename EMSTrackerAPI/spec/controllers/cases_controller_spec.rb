@@ -1,5 +1,6 @@
 
 require "spec_helper"
-describe CasesController, :type => :controller do
+Rspec.describe CasesController, :type => :controller do
+	describe "get index"
 	it "should create a case given parameters"
 end

@@ -17,6 +17,10 @@ module SessionsHelper
 		current_user.mfr
 	end
 	def logout
+		user_loc = Location.find_by_username(session[:user_id]);
+		if !user_loc.nil?
+			user_loc.delete
+		end
 		@current_user = nil
 		session[:user_id] = nil
 	end
